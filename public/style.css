@@ -71,6 +71,12 @@ body {
     border-radius: 5px;
     border: 2px solid hsl(198, 1%, 29%);
   }
+  .span{
+    background: #f44a4a;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 2px solid hsl(198, 1%, 29%);
+  }
   
   li {
     text-align: left;

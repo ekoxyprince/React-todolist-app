@@ -12,6 +12,14 @@ function App() {
       return [...value, input];
     });
   }
+  function removeItem(e){
+    const {name} = e.target
+   const todoIndex = todos.indexOf(name)
+   todos.splice(todoIndex,1)
+   setTodo((value) => {
+    return [...todos];
+  });
+  }
   return (
     <div className="container">
       <div className="heading">
@@ -26,7 +34,7 @@ function App() {
       <div>
         <ul>
           {todos.map((todo) => {
-            return <li> {todo}</li>;
+            return <li> {todo} < input className="span" onClick={removeItem} type="button" name={todo} value={"Delete"}/></li>;
           })}
         </ul>
       </div>
