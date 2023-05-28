@@ -12,12 +12,11 @@ function App() {
       return [...value, input];
     });
   }
-  function removeItem(e){
-    const {name} = e.target
-   const todoIndex = todos.indexOf(name)
-   todos.splice(todoIndex,1)
+  function removeItem(id){
    setTodo((value) => {
-    return [...todos];
+    return todos.filter((item,index)=>{
+      return index !== id
+    });
   });
   }
   return (
@@ -33,8 +32,9 @@ function App() {
       </div>
       <div>
         <ul>
-          {todos.map((todo) => {
-            return <li> {todo} < input className="span" onClick={removeItem} type="button" name={todo} value={"Delete"}/></li>;
+          {todos.map((todo,index) => {
+            return <li> {todo} < input className="span" onClick={()=>{
+removeItem(index)} type="button" name={todo} value={"Delete"}/></li>;
           })}
         </ul>
       </div>
